@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid p-0" style="background-image: url('{{ asset('images/mountain.jpg') }}'); background-size: cover; height: 100vh;">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow">
+        <div class="col-md-8"> <br><br><br>
+            <div class="card shadow w-50 mx-auto custom-background">
                 <div class="card-header text-center bg-primary text-white">
                     <h2>{{ __('Login') }}</h2>
                 </div>
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="mb-3 text-center">
-                            <button type="submit" class="btn btn-primary">{{ __('Login') }}</button>
+                            <button type="submit" class="btn btn-primary w-100">{{ __('Login') }}</button>
                         </div>
 
                         <div class="text-center">
@@ -55,4 +55,9 @@
         </div>
     </div>
 </div>
+<style>
+    .custom-background {
+        background-color: rgba(255, 255, 255, 0.5); /* Adjust the alpha channel (last value) for transparency */
+    }
+</style>
 @endsection
