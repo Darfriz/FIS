@@ -1,0 +1,549 @@
+/* General Styles */
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+.logo {
+    color: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    /*background-image: url('./images/sky.jpg'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #000000;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.friend-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* CSS code for the image */
+.friend-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire container */
+}
+
+/* CSS code for the text on top of the image */
+.friend-container .friend-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+/* Header Styles */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li {
+    list-style: none;
+    margin-left: 20px;
+    display: flex;
+}
+
+header ul li a {
+    text-decoration: none;
+    padding: 6px 30px;
+    color: #000000;
+    border-radius: 20px;
+    display: flex;
+}
+
+header ul li a:hover,
+header ul li a.active {
+    background: #000000;
+    color: #ffffff;
+}
+
+/* Button Styles */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+}
+
+.sign-in-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ab2222;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.register-button {
+    padding: 20px 40px;
+    font-size: 20px;
+    background-color: #ab2222;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px;
+    margin-top: 200px;
+    margin-right: 1100px;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ab2222;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.sign-in-button:hover,
+.register-button:hover {
+    background-color: #000000;
+}
+
+/* Flight Table Styles */
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 5%;
+}
+
+/* Table Header Styles */
+thead {
+    background-color: #000000;
+}
+
+th {
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    
+}
+
+/* Table Body Styles */
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr {
+    background-color: #ffffff;
+}
+
+tr:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.dustbin-icon {
+    cursor: pointer;
+}
+
+.large-icon {
+    font-size: 24px;
+}
+
+/* Index Styles */
+.plane-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.plane-image {
+    width: 800px;
+    height: auto;
+    left: 30px;
+    position: absolute;
+    transition: transform 0.3s;
+    margin-top: 500px;
+    transform: translate(50%, -50%);
+    animation: floatUpDown 3s infinite;
+}
+
+.cloud-image {
+    width: 500px;
+    height: auto;
+    transition: transform 0.3s;
+    margin-top: 100px;
+    margin-left: 0px;
+}
+
+.cloud-image {
+    opacity: 0.8;
+    width: 700px;
+    left: 30px;
+    position: absolute;
+    top: 40%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    animation: floatUpDown 5s infinite;
+}
+
+@keyframes floatUpDown {
+    0% {
+        transform: translate(50%, -50%);
+    }
+    50% {
+        transform: translate(50%, calc(-50% - 20px));
+    }
+    100% {
+        transform: translate(50%, -50%);
+    }
+}
+
+.image-gallery-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.image-gallery {
+    margin: 10px;
+    margin-bottom: 50px;
+}
+
+.coast-container {
+    position: relative;
+    text-align: center;
+    width: 300px;
+    height: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: filter 0.3s, transform 0.3s;
+}
+
+.coast-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.image-overlay p {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.coast-container:hover {
+    filter: brightness(0.7) scale(1.5);
+}
+
+.coast-container:hover .image-overlay {
+    opacity: 1;
+}
+
+/* Flight Styles */
+.flight-container .price-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    border-radius: 10px;
+}
+
+.flight-container {
+    flex-basis: 40%;
+    width: 400px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.flight-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"] {
+    display: inline-block;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+input[type="submit"],
+#today-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ab2222;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+#today-button:hover {
+    background-color: #000000;
+}
+
+/* Select Styles */
+select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.date-container {
+    display: flex;
+    align-items: center;
+}
+
+.date-container input[type="date"] {
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: none;
+    flex: 1;
+}
+
+.date-container button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #ab2222;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.date-container button:hover {
+    background-color: #000000;
+}
+
+#passenger-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.passenger-button {
+    width: 70px;
+    height: 30px;
+    border: none;
+    border-radius: 10%;
+    background-color: #ab2222;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.passenger-button:focus {
+    outline: none;
+}
+
+.passenger-button:hover {
+    background-color: #000000;
+}
+
+.passenger-button.active {
+    background-color: #000000;
+}
+
+/* Successful Booking Styles */
+.success-message,
+.error-message {
+    width: 400px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.success-message {
+    text-align: center;
+    color: #35a939;
+}
+
+.error-message {
+    background-color: #ce382d;
+}
+
+/*FOR ANALYTICS*/
+progress {
+    width: 100%;
+    height: 20px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+progress::-webkit-progress-value {
+    background-color: #00d47f;
+    border-radius: 5px;
+}
+
+progress::-moz-progress-bar {
+    background-color: #00d47f;
+    border-radius: 5px;
+}
+
+progress::-ms-fill {
+    background-color: #00d47f;
+    border-radius: 5px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* PAGINATION */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
+  }
+  
+  .pagination a {
+    color: #000000;
+    background-color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid #000000;
+    margin: 5px;
+    border-radius: 25%;
+  }
+  
+  .pagination a.active {
+    background-color: #000000;
+    color: #fff;
+  }
+  
+  .pagination a:hover {
+    background-color: #000000;
+    color: #fff;
+  }
+
+  /* SEARCH */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 50px;
+  }
+  
+  .search-container input[type="text"] {
+    padding: 5px;
+    width: 300px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    outline: none;
+  }
+  
+  .search-container button {
+    padding: 5px 10px;
+    height: 40px;
+    width: 100px;
+    background-color: #004989;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    margin-left: 25px;
+    cursor: pointer;
+  }
+  
+  .search-container button:hover {
+    background-color: #000000;
+  }
+
+  
+

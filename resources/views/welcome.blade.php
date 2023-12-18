@@ -5,96 +5,76 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
-
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        
     </head>
+    <div class="plane-container">
+        <img src="./images/plane.png" alt="Plane" class="plane-image" >
+        <img src="./images/cloud.png" alt="Plane" class="cloud-image" >
+        <div class="button-container">
+            <button class="register-button" onclick="redirectToRegister()">Register Now!!!</button>
+        </div>  
+    </div>
+
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+        
+        
+        <body class="background-image" style="background-image: url('images/background.png');">
+        <header>
+    <a href="#" class="logo" style="color: black;">FAA<br> FLIGHT INFORMATION SYSTEM</a>
+    <ul>
+      <li> <a href="index.html" class="active">Home</a></li>
+      <li> <a href="flight.html">Flight</a></li>
+      <li> <a href="dashboard.php">Database</a></li>
+      <li> <a href="analytics.php">Analytics</a></li>
+      <li><a href="{{ route('login') }}">Account</a></li>
+  </ul>
+  </header> <br>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+<div class="image-gallery-container">
+    <div class="image-gallery">
+      <div class="coast-container">
+        <a href="https://www.neoscapesmaldives.com/resort/" target="_blank">
+        <img src="./images/coast.jpg" alt="Coast Image">
+        <div class="image-overlay">
+          <p>Discover Kuala Perlis<br>In Perlis</p>
         </div>
+      </div></a>
+    </div>
+
+    <div class="image-gallery">
+      <div class="coast-container">
+        <a href="https://www.fourseasons.com/" target="_blank">
+        <img src="./images/hotel.jpg" alt="Hotel Image">
+        <div class="image-overlay">
+          <p>Get Exclusive<br> Hotel Discount With Us</p>
+        </div>
+      </div></a>
+    </div>
+
+    <div class="image-gallery">
+      <div class="coast-container">
+        <a href="https://www.visa.com.my/pay-with-visa/find-a-card/credit-cards.html" target="_blank">
+        <img src="./images/visa.jpg" alt="Hotel Image">
+        <div class="image-overlay">
+          <p>Visa & Mastercard<br> Are Accepted Here</p>
+        </div>
+      </div></a>
+    </div>
+  </div>
+
+  <div class="friend-container">
+    <div class="friend-text">
+      Spent Quality Time With Your Friends & Family!
+    </div>
+    <img src="./images/friends.jpg" alt="Image">
+
+  
+  </div>
+
+  <script src="{{ asset('script.js') }}"></script>
     </body>
 </html>
