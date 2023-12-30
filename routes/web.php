@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +20,21 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['admin'])->group(function () {
+    // Routes for administrators
+
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+    Route::post('/searchByName', [DashboardController::class, 'searchByName'])->name('searchByName');
+    
+    Route::get('/analytics', 'AnalyticsController@index')->name('analytics');
+    Route::post('/deleteRow', [DashboardController::class, 'deleteRow'])->name('deleteRow');
+});
+
+// Other routes accessible to all users
+Route::get('/flight', 'FlightController@index')->name('flight');
+Route::post('/flight', 'FlightController@store')->name('flight.store');
+
+

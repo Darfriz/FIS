@@ -24,15 +24,15 @@
         
         <body class="background-image" style="background-image: url('images/background.png');">
         <header>
-    <a href="#" class="logo" style="color: black;">FAA<br> FLIGHT INFORMATION SYSTEM</a>
-    <ul>
-      <li> <a href="index.html" class="active">Home</a></li>
-      <li> <a href="flight.html">Flight</a></li>
-      <li> <a href="dashboard.php">Database</a></li>
-      <li> <a href="analytics.php">Analytics</a></li>
-      <li><a href="{{ route('login') }}">Account</a></li>
-  </ul>
-  </header> <br>
+          <a href="#" class="logo" style="color: black;">FAA<br> FLIGHT INFORMATION SYSTEM</a>
+            <ul>
+              <li> <a href="{{ route('home') }}" class="active">Home</a></li>
+              <li><a href="{{ route('flight') }}">Flight</a></li>
+              <li> <a href="{{ route('dashboard') }}">Database</a></li>
+              <li> <a href="{{ route('analytics') }}">Analytics</a></li>
+              <li><a href="{{ route('login') }}">Account</a></li>
+            </ul>
+        </header> <br>
 
 <div class="image-gallery-container">
     <div class="image-gallery">

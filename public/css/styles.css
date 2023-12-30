@@ -485,32 +485,42 @@ label {
 }
 
 /* PAGINATION */
-.pagination {
+.pagination-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 20px;
-    
-  }
-  
-  .pagination a {
-    color: #000000;
-    background-color: #ffffff;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination a, .pagination span {
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
     text-decoration: none;
-    padding: 10px 20px;
-    border: 1px solid #000000;
-    margin: 5px;
-    border-radius: 25%;
-  }
-  
-  .pagination a.active {
-    background-color: #000000;
+    color: #333;
+    background-color: #f4f4f4;
+    transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+.pagination .active span {
+    background-color: #3490dc;
     color: #fff;
-  }
-  
-  .pagination a:hover {
-    background-color: #000000;
-    color: #fff;
-  }
+}
 
   /* SEARCH */
 .search-container {

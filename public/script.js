@@ -1,6 +1,6 @@
-function redirectToRegister() {
-    window.location.href = "register.html";
-  }
+function redirectToFlight() {
+  window.location.href = "{{ route('flight') }}";
+}
   
   //AUTO SET DATE
   const todayButton = document.getElementById('today-button');
