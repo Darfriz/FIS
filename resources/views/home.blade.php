@@ -15,7 +15,7 @@
         <img src="./images/plane.png" alt="Plane" class="plane-image" >
         <img src="./images/cloud.png" alt="Plane" class="cloud-image" >
         <div class="button-container">
-            <button class="register-button" onclick="redirectToRegister()">Register Now!!!</button>
+          <button class="register-button" onclick="redirectToFlight()">Book A Flight Now!</button>
         </div>  
     </div>
 
@@ -30,7 +30,11 @@
       <li><a href="{{ route('flight') }}">Flight</a></li>
       <li> <a href="{{ route('dashboard') }}">Database</a></li>
       <li> <a href="{{ route('analytics') }}">Analytics</a></li>
-      <li><a href="{{ route('login') }}">Account</a></li>
+      @if(auth()->check())
+        <li><a href="{{ url('/') }}">Account</a></li>
+        @else
+          <li><a href="{{ route('login') }}">Account</a></li>
+      @endif
     </ul>
   </header> <br>
 
@@ -74,7 +78,11 @@
 
   
   </div>
-
+  <script>
+    function redirectToFlight() {
+        window.location.href = "{{ route('flight') }}";
+    }
+</script>
   <script src="{{ asset('script.js') }}"></script>
     </body>
 </html>

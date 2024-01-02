@@ -8,12 +8,16 @@
     <header>
       <a href="#" class="logo">FAA<br> FLIGHT INFORMATION SYSTEM</a>
       <ul>
-            <li> <a href="{{ route('home') }}">Home</a></li>
-            <li><a href="{{ route('flight') }}" class="active">Flight</a></li>
-            <li> <a href="{{ route('dashboard') }}">Database</a></li>
-            <li> <a href="{{ route('analytics') }}">Analytics</a></li>
-            <li><a href="{{ route('login') }}">Account</a></li>
-        </ul>
+      <li> <a href="{{ route('home') }}">Home</a></li>
+      <li><a href="{{ route('flight') }}" class="active">Flight</a></li>
+      <li> <a href="{{ route('dashboard') }}">Database</a></li>
+      <li> <a href="{{ route('analytics') }}">Analytics</a></li>
+      @if(auth()->check())
+        <li><a href="{{ url('/') }}">Account</a></li>
+        @else
+          <li><a href="{{ route('login') }}">Account</a></li>
+      @endif
+    </ul>
     </header> <br><br><br><br><br><br>
     <div id="success-message" class="success-message" style="display: none;">
       Success! 

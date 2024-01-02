@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<script>
+    // Check if the user is already logged in
+    @auth
+        window.location.href = "{{ route('welcome') }}"; // Redirect to the dashboard or another page
+    @endauth
+</script>
 <div class="container-fluid p-0" style="background-image: url('{{ asset('images/brown_mountains.jpg') }}'); background-size: cover; height: 100vh;">
     <div class="row justify-content-center"> 
         <div class="col-md-8"> <br><br><br>

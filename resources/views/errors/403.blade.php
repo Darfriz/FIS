@@ -12,7 +12,11 @@
                 <li><a href="{{ route('flight') }}">Flight</a></li>
                 <li> <a href="{{ route('dashboard') }}" class="active">Database</a></li>
                 <li> <a href="{{ route('analytics') }}" class="active">Analytics</a></li>
-                <li><a href="{{ route('login') }}">Account</a></li>
+                @if(auth()->check())
+                    <li><a href="{{ url('/') }}">Account</a></li>
+                    @else
+                    <li><a href="{{ route('login') }}">Account</a></li>
+                @endif
             </ul>
             
         </header>

@@ -555,5 +555,19 @@ label {
     background-color: #000000;
   }
 
+  /* LOGOUT BUTTON */
+  .logout-container {
+    text-align: center;
+}
+
+.logout-button {
+    color: black; /* Set the initial color */
+    text-decoration: none;
+    transition: color 0.3s; /* Add a smooth transition effect */
+}
+
+.logout-button:hover {
+    color: red; /* Change the color on hover */
+}
   
 

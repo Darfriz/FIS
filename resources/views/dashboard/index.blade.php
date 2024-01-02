@@ -8,11 +8,15 @@
   <header>
     <a href="#" class="logo">FAA<br> FLIGHT INFORMATION SYSTEM</a>
     <ul>
-            <li><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="{{ route('flight') }}">Flight</a></li>
-            <li> <a href="{{ route('dashboard') }}" class="active">Database</a></li>
-            <li> <a href="{{ route('analytics') }}">Analytics</a></li>
-            <li><a href="{{ route('login') }}">Account</a></li>
+      <li> <a href="{{ route('home') }}">Home</a></li>
+      <li><a href="{{ route('flight') }}">Flight</a></li>
+      <li> <a href="{{ route('dashboard') }}" class="active">Database</a></li>
+      <li> <a href="{{ route('analytics') }}">Analytics</a></li>
+      @if(auth()->check())
+        <li><a href="{{ url('/') }}">Account</a></li>
+        @else
+          <li><a href="{{ route('login') }}">Account</a></li>
+      @endif
     </ul>
   </header> <br><br><br><br><br><br><br>
   
@@ -45,7 +49,7 @@
             <td>{{ $flight->to_location }}</td>
             <td>{{ $flight->date }}</td>
             <td>{{ $flight->passengers }}</td>
-            <td>{{ $flight->total_price }}</td>
+            <td>RM {{ $flight->total_price }}</td>
         
             <!-- Add a Delete button with a dustbin icon -->
             <td><span class='dustbin-icon large-icon' data-id="{{ $flight->id }}">&#128465;</span></td>

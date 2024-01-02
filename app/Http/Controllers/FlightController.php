@@ -100,9 +100,9 @@ class FlightController extends Controller
     private function updateAnalyticsTable($totalPrice)
 {
     // Calculate values for analytics (You need to define your own logic)
-    $grossProfit = $totalPrice * 0.8; // Example: 80% of total price
+    $grossProfit = $totalPrice ; 
     $tax = $totalPrice * 0.1; // Example: 10% of total price
-    $operationalCost = $totalPrice * 0.1; // Example: 10% of total price
+    $operationalCost = $totalPrice * 0.3; // Example: 30% of total price
     $nettProfit = $grossProfit - $tax - $operationalCost;
 
     // Fetch the existing analytics record or create a new one if it doesn't exist

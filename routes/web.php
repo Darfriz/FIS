@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PageController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,10 +32,14 @@ Route::middleware(['admin'])->group(function () {
     
     Route::get('/analytics', 'AnalyticsController@index')->name('analytics');
     Route::post('/deleteRow', [DashboardController::class, 'deleteRow'])->name('deleteRow');
+
+    
 });
 
 // Other routes accessible to all users
 Route::get('/flight', 'FlightController@index')->name('flight');
 Route::post('/flight', 'FlightController@store')->name('flight.store');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
 
 

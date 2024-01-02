@@ -45,16 +45,22 @@ mysqli_close($connection);
             width: 400px;
             margin: 0 auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 1);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+            background-color: rgba(41, 174, 255, 1);
+            border-radius: 20px;
+            /*box-shadow: 0 0 10px rgba(0, 0, 0, 1);*/
             text-align: center;
             font-size: 18px;
-            color: #333;
+            color: #fff;
+            transition: transform 0.3s ease-in-out;
         }
 
         .analytics-container p {
-        margin: 5px 0;
+            margin: 5px 0;
+        }
+
+        .analytics-container:hover {
+            transform: scale(1.1); /* Adjust the scaling factor as needed */
+            background-color: rgba(0, 82, 133, 1);
         }
 
         #chartContainer {
@@ -113,28 +119,53 @@ mysqli_close($connection);
             display: block;
             margin-bottom: 5px;
         }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Adjust the minimum and maximum width as needed */
+            gap: 20px; /* Adjust the gap between grid items */
+            justify-content: center;
+        }
+
     </style>
     </head>
-    <body class="background-image" style="background-image: url('images/white.png');">
+    <body class="background-image" style="background-image: url('images/cold.jpg');">
         <header>
-            <a href="#" class="logo">FAA<br> FLIGHT INFORMATION SYSTEM</a>
+        <a href="#" class="logo" style="color: black;">FAA<br> FLIGHT INFORMATION SYSTEM</a>
             <ul>
-            <li> <a href="{{ route('home') }}">Home</a></li>
-            <li><a href="{{ route('flight') }}">Flight</a></li>
-            <li> <a href="{{ route('dashboard') }}">Database</a></li>
-            <li> <a href="{{ route('analytics') }}" class="active">Analytics</a></li>
+                <li> <a href="{{ route('home') }}">Home</a></li>
+                <li><a href="{{ route('flight') }}">Flight</a></li>
+                <li> <a href="{{ route('dashboard') }}">Database</a></li>
+                <li> <a href="{{ route('analytics') }}" class="active">Analytics</a></li>
+                @if(auth()->check())
+            <li><a href="{{ url('/') }}">My Account</a></li>
+            @else
             <li><a href="{{ route('login') }}">Account</a></li>
+        @endif
             </ul>
         </header> <br><br><br><br><br><br><br>
 
-        <div class="analytics-container"> 
-            <p><b>Gross Profit = RM <?php echo $row_latest_row['gross_profit']; ?><br>
-                Tax = RM <?php echo $row_latest_row['tax']; ?><br>
-                Operational Cost = RM <?php echo $row_latest_row['operational_cost']; ?><br>
-                Nett Profit = RM <?php echo $row_latest_row['nett_profit']; ?><br>
-            </b>
-            </p>
-        </div><br>
+    <div class="grid-container">
+        <div class="analytics-container">
+            <p>Total Gross Profit = <br>
+            <h2><b>RM {{ $totalGrossProfit }}</b></h2></p>
+        </div>
+
+        <div class="analytics-container">
+            <p>Total Tax = <br>
+            <h2><b>RM {{ $totalTax }}</b></h2></p>
+        </div>
+
+        <div class="analytics-container">
+            <p>Total Operational Cost = <br>
+            <h2><b>RM {{ $totalOperationalCost }}</b></h2></p>
+        </div>
+
+        <div class="analytics-container">
+            <p>Total Nett Profit = <br>
+            <h2><b>RM {{ $totalNettProfit }}</b></h2></p>
+        </div>
+
 
         <div class="analytics-container"> 
         <!-- Progress bar for monthly target -->
@@ -148,16 +179,17 @@ mysqli_close($connection);
         $progressPercentage = min($progressPercentage, 100);
         ?>
         <div>
-            <label for="monthly_target">Monthly Target = RM 1,000</label>
+            <label for="monthly_target"><p>Monthly Sales Target = RM 1,000</p></label>
             <progress id="monthly_target" max="100"></progress>
-            <span><?php echo $progressPercentage . '%'; ?></span>
+            <h3><span><?php echo $progressPercentage . '%'; ?></span></h3>
         </div>
-    </div>
-    <br>
-        <div id="chartContainer">
+    </div><br><br><br><br>
+
+    
+    <div id="chartContainer">
             <canvas id="nettProfitChart"></canvas>
         </div>
-        
+
         
     <script>
     // JavaScript code to create the graph
